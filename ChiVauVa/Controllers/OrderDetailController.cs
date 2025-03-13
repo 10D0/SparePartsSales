@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ChiVauVa.Data;
 using ChiVauVa.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChiVauVa.Controllers
 {
+    [Authorize]
     public class OrderDetailController : Controller
     {
         private readonly ApplicationDbContext _context;

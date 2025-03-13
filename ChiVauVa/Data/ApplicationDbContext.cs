@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using ChiVauVa.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChiVauVa.Data;
 
-public partial class ApplicationDbContext : DbContext
+public partial class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public ApplicationDbContext()
     {
@@ -42,6 +43,7 @@ public partial class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Customer>(entity =>
         {
             entity.HasKey(e => e.CustomerId).HasName("PK__Customer__CD65CB8538C995A2");
